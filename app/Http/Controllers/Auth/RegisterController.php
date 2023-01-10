@@ -57,7 +57,7 @@ class RegisterController extends Controller
         return view('auth.register.register', compact('subjects'));
     }
 
-    public function registerPost(Request $request)
+    public function registerPost(RegisterFormRequest $request) //Reguest→RegisterFormRequest
     {
         DB::beginTransaction();
         try{

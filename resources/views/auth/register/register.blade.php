@@ -15,7 +15,7 @@
 <body>
   <form action="{{ route('registerPost') }}" method="POST">
     <div class="w-100 vh-100 d-flex" style="align-items:center; justify-content:center;">
-      <div class="w-25 vh-75 border p-3">
+      <div class="vh-75 border p-3"> <!-- classにw-25いる？ -->
         <div class="register_form">
           <div class="d-flex mt-3" style="justify-content:space-between">
             <div class="" style="width:140px">
@@ -50,6 +50,7 @@
             <div class="border-bottom border-primary">
               <input type="mail" class="w-100 border-0 mail_address" name="mail_address">
             </div>
+            <span class="text-danger">{{$errors->first('mail_address')}}</span>
           </div>
         </div>
         <div class="mt-3">
@@ -144,6 +145,7 @@
           </select>
           <label style="font-size:13px">月</label>
         </div>
+        <span class="text-danger">{{$errors->first('birth_day')}}</span>
         <div class="mt-3">
           <label class="d-block m-0" style="font-size:13px">役職</label>
           <input type="radio" name="role" class="admin_role role" value="1">
