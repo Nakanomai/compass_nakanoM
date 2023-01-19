@@ -29,9 +29,12 @@ class RegisterFormRequest extends FormRequest
           'under_name' => ['required','max:10'],
           'over_name_kana' => ['required','regex:/^[ア-ン゛゜ァ-ォャ-ョー]+$/u',],
           'under_name_kana' => ['required','regex:/^[ア-ン゛゜ァ-ォャ-ョー]+$/u',],
-          'mail_address' => ['required','max:100'],
+          'mail_address' => ['required','email:filter','max:100'],
           'sex' => ['required',],
-          'birth_day' => ['required',],
+          'birth_day' => ['required'],
+          'birth_day_year' => ['required_with:birth_day_month,birth_day_day'],
+          'birth_day_month' => ['required_with:birth_day_year,birth_day_day'],
+          'birth_day_day' => ['required_with:birth_day_year,birth_day_month'],
           'role' => ['required',],
           'password' => ['required','min:8','max:20','unique:users'],
         ];
@@ -42,8 +45,10 @@ class RegisterFormRequest extends FormRequest
     public function massages(){
       return[
         //
-        'mail.required'  => '※メール形式で入力してください',
-        'birth_day.required' => '※生年月日が未入力です'
+        'mail_address.required'  => '※メール形式で入力してください',
+        'mail_address.email'  => '※メール形式で入力してください',
+        'mail_address.max'  => '※メール形式で入力してください',
+        'birth_day.required' => '※生年月日が未入力です',
       ];
     }
 }
