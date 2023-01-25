@@ -16,6 +16,15 @@ class RegisterFormRequest extends FormRequest
         return true; //[ *1.変更：default=false ]
     }
 
+    public function getValidatorInstance()
+    {
+      $birth_day = $this->input('datetime', array());
+      $birth_day_validation = implode('-', $birth_day);
+      $this->merge([
+            'birth_day_validation' => $birth_day_validation,
+      ]);
+      return parent::getValidatorInstance();
+    }
     /**
      * Get the validation rules that apply to the request.
      *
@@ -31,10 +40,7 @@ class RegisterFormRequest extends FormRequest
           'under_name_kana' => ['required','regex:/^[ア-ン゛゜ァ-ォャ-ョー]+$/u',],
           'mail_address' => ['required','email:filter','max:100'],
           'sex' => ['required',],
-          'birth_day' => ['required'],
-          'birth_day_year' => ['required_with:birth_day_month,birth_day_day'],
-          'birth_day_month' => ['required_with:birth_day_year,birth_day_day'],
-          'birth_day_day' => ['required_with:birth_day_year,birth_day_month'],
+          'birth_day_validation' => ['date'],
           'role' => ['required',],
           'password' => ['required','min:8','max:20','unique:users'],
         ];
