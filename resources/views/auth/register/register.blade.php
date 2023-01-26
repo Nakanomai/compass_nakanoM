@@ -19,12 +19,18 @@
         <div class="register_form">
           <div class="d-flex mt-3" style="justify-content:space-between">
             <div class="" style="width:140px">
+              @if($errors->first('over_name'))
+              <span class="error_message">{{ $errors->first('over_name') }}</span>
+              @endif
               <label class="d-block m-0" style="font-size:13px">姓</label>
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 over_name" name="over_name">
               </div>
             </div>
             <div class="" style="width:140px">
+              @if($errors->first('under_name'))
+              <span class="error_message">{{ $errors->first('under_name') }}</span>
+              @endif
               <label class=" d-block m-0" style="font-size:13px">名</label>
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 under_name" name="under_name">
@@ -33,12 +39,18 @@
           </div>
           <div class="d-flex mt-3" style="justify-content:space-between">
             <div class="" style="width:140px">
+              @if($errors->first('over_name_kana'))
+              <span class="error_message">{{ $errors->first('over_name_kana') }}</span>
+              @endif
               <label class="d-block m-0" style="font-size:13px">セイ</label>
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 over_name_kana" name="over_name_kana">
               </div>
             </div>
             <div class="" style="width:140px">
+              @if($errors->first('under_name_kana'))
+              <span class="error_message">{{ $errors->first('under_name_kana') }}</span>
+              @endif
               <label class="d-block m-0" style="font-size:13px">メイ</label>
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 under_name_kana" name="under_name_kana">
@@ -91,6 +103,10 @@
             <option value="2008">2008</option>
             <option value="2009">2009</option>
             <option value="2010">2010</option>
+            <option value="2010">2011</option>
+            <option value="2010">2012</option>
+            <option value="2010">2013</option>
+            <option value="2010">2014</option>
           </select>
           <label style="font-size:13px">年</label>
           <select class="old_month" name="old_month">

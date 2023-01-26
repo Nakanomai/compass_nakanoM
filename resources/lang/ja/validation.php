@@ -39,7 +39,7 @@ return [
     'digits_between'       => ':attribute は :min ～ :max 桁のみ有効です',
     'dimensions'           => ':attribute ルールに合致する画像サイズのみ有効です',
     'distinct'             => ':attribute に重複している値があります',
-    'email'                => '※メール形式で入力してください',
+    'email'                => ':attribute にメールアドレス',
     'ends_with' => 'The :attribute must end with one of the following: :values.',
     'exists'               => ':attribute 無効な値です',
     'file'                 => ':attribute アップロード出来ないファイルです',
@@ -128,8 +128,19 @@ return [
     */
 
     'custom' => [
-      'birth_day.required' => '※生年月日が未入力です',
+      'birth_day.date' => '※生年月日が未入力です',
+      'birth_day.after' => '※生年月日が未入力です',
       'mail_address.required'  => '※メール形式で入力してください',
+      'mail_address.email'  => '※メール形式で入力してください',
+      'mail_address.max'  => '※メール形式で入力してください',
+      'over_name.required' => '※性を入力してください',
+      'under_name.required' => '※名を入力してください',
+      'over_name.max' => '※性を入力してください',
+      'under_name.max' => '※名を入力してください',
+      'over_name_kana.required' => '※カタカナで入力してください',
+      'under_name_kana.required' => '※カタカナで入力してください',
+      'over_name_kana.regex' => '※カタカナで入力してください',
+      'under_name_kana.regex' => '※カタカナで入力してください',
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
@@ -157,7 +168,7 @@ return [
       'birth_day_month' => '月',
       'birth_day_day' => '日',
       'password' => 'パスワード',
-      'password_confirmation' => '確認用パスワード'
+      'password_confirmation' => 'パスワード確認',
     ],
 
 ];
