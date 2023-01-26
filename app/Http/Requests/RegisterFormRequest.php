@@ -72,6 +72,8 @@ class RegisterFormRequest extends FormRequest
         'birth_day.date' => '※生年月日が未入力です',
         'birth_day.yesterday' => '※生年月日が未入力です',
         'password.unigue' => '※パスワードが異なります',
+        'password.min' => '※パスワードが異なります',
+        'password.max' => '※パスワードが異なります',
         'password.required' => '※パスワードが異なります',
       ];
     }
