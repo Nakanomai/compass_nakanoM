@@ -44,12 +44,12 @@ class RegisterFormRequest extends FormRequest
           'under_name' => ['required','max:10','string'],
           'over_name_kana' => ['required','regex:/^[ア-ン゛゜ァ-ォャ-ョー]+$/u',],
           'under_name_kana' => ['required','regex:/^[ア-ン゛゜ァ-ォャ-ョー]+$/u',],
-          'mail_address' => ['required','email:filter','max:100'],
+          'mail_address' => ['required','email:filter','max:100','unique:users'],
           'sex' => ['required','in: 1,2,3'],
-          'birth_day' => ['date','after:yesterday'],
+          'birth_day' => ['date','after:yesterday','before:1999-12-31',],
           'role' => ['required','in: 1,2,3,4'],
-          'password' => ['required','min:8','max:20','unique:users',],
-          'password_confirmation' => ['required','min:8','max20','same:password',]
+          'password' => ['required','min:8','max:20','confirmed','unique:users',],
+          'password_confirmation' => ['required','min:8','max20','unique:users',]
         ];
     }
 
@@ -58,23 +58,26 @@ class RegisterFormRequest extends FormRequest
     public function massages(){
       return[
         //
-        'over_name.required' => '※性を入力してください',
-        'under_name.required' => '※名を入力してください',
-        'over_name.max' => '※性を入力してください',
-        'under_name.max' => '※名を入力してください',
-        'over_name_kana.required' => '※カタカナで入力してください',
-        'under_name_kana.required' => '※カタカナで入力してください',
+        'over_name.required' => '※性は必須です',
+        'under_name.required' => '※名は必須です',
+        'over_name.max' => '※10文字まで入力してください',
+        'under_name.max' => '※10文字まで入力してください',
+        'over_name_kana.required' => '※カタカナは必須です',
+        'under_name_kana.required' => '※カタカナは必須です',
         'over_name_kana.regex' => '※カタカナで入力してください',
         'under_name_kana.regex' => '※カタカナで入力してください',
-        'mail_address.required'  => '※メール形式で入力してください',
+        'mail_address.required'  => '※メールアドレスは必須です',
         'mail_address.email'  => '※メール形式で入力してください',
-        'mail_address.max'  => '※メール形式で入力してください',
+        'mail_address.unique'  => '※すでに登録済みのメールアドレスです',
+        'mail_address.max'  => '※100文字まで入力してください',
         'birth_day.date' => '※生年月日が未入力です',
-        'birth_day.yesterday' => '※生年月日が未入力です',
-        'password.unigue' => '※パスワードが異なります',
-        'password.min' => '※パスワードが異なります',
-        'password.max' => '※パスワードが異なります',
-        'password.required' => '※パスワードが異なります',
+        'birth_day.yesterday' => '※2000年1月1日から今日まで入力してください',
+        'birth_day.before' => '※2000年1月1日から今日まで入力してください',
+        'password.unique' => '※パスワードは現在使われています',
+        'password.confirmed' => '※パスワードと確認用と一致させてください',
+        'password.min' => '※パスワードは8文字以上20文字以内で入力してください',
+        'password.max' => '※パスワードは8文字以上20文字以内で入力してください',
+        'password.required' => '※パスワードは必須です',
       ];
     }
 }
