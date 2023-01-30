@@ -22,7 +22,7 @@
       <p><a href="{{ route('top.show') }}">トップ</a></p>
       <p><a href="/logout">ログアウト</a></p>
       <p><a href="{{ route('calendar.general.show',['user_id' => Auth::id()]) }}">スクール予約</a></p>
-      @if(auth()->user()->role != 4)　<!-- !=は等しくない 比較演算子 -->
+      @if(auth()->user()->role != 4)<!-- !=は等しくない  -->
        <!--どっちもいける if(auth()->user()->role === 1 || auth()->user()->role === 2 || auth()->user()->role === 3) -->
       <p><a href="{{ route('calendar.admin.show',['user_id' => Auth::id()]) }}">スクール予約確認</a></p>
       <p><a href="{{ route('calendar.admin.setting',['user_id' => Auth::id()]) }}">スクール枠登録</a></p>
