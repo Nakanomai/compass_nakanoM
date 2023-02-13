@@ -24,7 +24,6 @@ class PostEditRequest extends FormRequest
     public function rules()
     {
         return [
-          'post_category_id' => ['required','string'],
           'post_title' => ['required','max:100'],
           'post_body' => ['required','max:5000'],
           //
@@ -36,7 +35,6 @@ class PostEditRequest extends FormRequest
             'post_title.required' => 'タイトルは必須です',
             'post_body.max' => '最大文字数は5000文字です。',
             'post_title.required' => '内容は必須です',
-            'post_category_id' => 'カテゴリーは必須です',
         ];
     }
 }
