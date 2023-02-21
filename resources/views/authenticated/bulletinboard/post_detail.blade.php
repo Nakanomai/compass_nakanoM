@@ -50,6 +50,9 @@
         <form action="{{ route('comment.create') }}" method="post" id="commentRequest">{{ csrf_field() }}</form>
       </div>
     </div>
+    @foreach ($errors->all() as $error)
+      <li>{{$error}}</li>
+    @endforeach
   </div>
 </div>
 <div class="modal js-modal">
