@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Authenticated\BulletinBoard;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Categories\MainCategory;
@@ -77,7 +76,7 @@ class PostsController extends Controller
     }
 
     public function subCategoryCreate(Request $request){
-      　SubCategory::create(['main_category_id' => $request->sub_category_name]);
+      SubCategory::create(['main_category_id' => $request->sub_category_name]);
       return redirect()->route('post.input');
     }
 
