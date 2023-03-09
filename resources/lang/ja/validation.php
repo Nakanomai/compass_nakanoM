@@ -149,6 +149,12 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+      'main_category_name.max' => 'メインカテゴリーは100文字以内で入力してください。',
+      'main_category_name.required' => 'メインカテゴリーは必須です',
+      'main_category_name.unique' => 'すでに登録済みのメインカテゴリーです',
+      'sub_category_name.max' => 'サブカテゴリーは100文字以内で入力してください。',
+      'sub_category_name.required' => 'サブカテゴリーは必須です',
+      'sub_category_name.unique' => 'すでに登録済みのサブカテゴリーです',
     ],
 
     /*
@@ -174,6 +180,10 @@ return [
       'birth_day_day' => '日',
       'password' => 'パスワード',
       'password_confirmation' => 'パスワード確認',
+      'main category' => 'メインカテゴリー',
+      'sub category' => 'メインカテゴリー',
+      'main_category' => 'メインカテゴリー',
+      'sub_category' => 'メインカテゴリー',
     ],
 
 ];

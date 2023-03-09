@@ -1,9 +1,6 @@
 @extends('layouts.sidebar')
 
 @section('content')
-@foreach ($errors->all() as $error)
-  <li>{{$error}}</li>
-@endforeach
 <div class="post_create_container d-flex">
   <div class="post_create_area border w-50 m-5 p-5">
     <div class="">
@@ -60,6 +57,9 @@
         <form action="{{ route('sub.category.create') }}" method="post" id="subCategoryRequest">{{ csrf_field() }}</form>
       </div>
     </div>
+    @foreach ($errors->all() as $error)
+      <li>{{$error}}</li>
+    @endforeach
   </div>
   @endcan
 </div>
