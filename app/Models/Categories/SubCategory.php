@@ -14,9 +14,11 @@ class SubCategory extends Model
     ];
     public function mainCategory(){
         // リレーションの定義
+        return $this->belongsTo('App\MainCategory');
     }
 
     public function posts(){
         // リレーションの定義
+        return $this->hasMany('App\Post');
     }
 }
