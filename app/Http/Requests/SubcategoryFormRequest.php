@@ -25,14 +25,14 @@ class SubcategoryFormRequest extends FormRequest
     {
         return [
             //
-            'sub_category' => ['required','unique:sub_category','max:100'],
+            'sub_category_name' => ['required','unique:sub_categories,sub_category','max:100'],
         ];
     }
     public function messages(){
         return [
-            'sub_category.max' => 'サブカテゴリーは100文字以内で入力してください。',
-            'sub_category.required' => 'サブカテゴリーは必須です',
-            'sub_category.unique' => 'すでに登録済みのサブカテゴリーです',
+            'sub_category_name.max' => 'サブカテゴリーは100文字以内で入力してください。',
+            'sub_category_name.required' => 'サブカテゴリーは必須です',
+            'sub_category_name.unique' => 'すでに登録済みのサブカテゴリーです',
         ];
     }
 }
