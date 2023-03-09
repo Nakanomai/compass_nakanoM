@@ -46,10 +46,10 @@ class RegisterFormRequest extends FormRequest
           'under_name_kana' => ['required','regex:/^[ア-ン゛゜ァ-ォャ-ョー]+$/u',],
           'mail_address' => ['required','email:filter','max:100','unique:users'],
           'sex' => ['required','in: 1,2,3'],
-          'birth_day' => ['date','after:yesterday','before:1999-12-31',],
+          'birth_day' => ['required','before:yesterday','after:1999-12-31',],
           'role' => ['required','in: 1,2,3,4'],
           'password' => ['required','min:8','max:20','confirmed','unique:users',],
-          'password_confirmation' => ['required','min:8','max20','unique:users',]
+          'password_confirmation' => ['required','min:8','max:20',]
         ];
     }
 
@@ -70,7 +70,7 @@ class RegisterFormRequest extends FormRequest
         'mail_address.email'  => '※メール形式で入力してください',
         'mail_address.unique'  => '※すでに登録済みのメールアドレスです',
         'mail_address.max'  => '※100文字まで入力してください',
-        'birth_day.date' => '※生年月日が未入力です',
+        'birth_day.required' => '※生年月日が未入力です',
         'birth_day.yesterday' => '※2000年1月1日から今日まで入力してください',
         'birth_day.before' => '※2000年1月1日から今日まで入力してください',
         'password.unique' => '※パスワードは現在使われています',

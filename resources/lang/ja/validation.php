@@ -149,12 +149,6 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
-      'main_category_name.max' => 'メインカテゴリーは100文字以内で入力してください。',
-      'main_category_name.required' => 'メインカテゴリーは必須です',
-      'main_category_name.unique' => 'すでに登録済みのメインカテゴリーです',
-      'sub_category_name.max' => 'サブカテゴリーは100文字以内で入力してください。',
-      'sub_category_name.required' => 'サブカテゴリーは必須です',
-      'sub_category_name.unique' => 'すでに登録済みのサブカテゴリーです',
     ],
 
     /*

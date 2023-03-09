@@ -25,7 +25,7 @@ class MaincategoryFormRequest extends FormRequest
     {
         return [
             //
-            'main_category' => ['required','unique:main_category','max:100'],
+            'main_category_name' => ['required','unique:main_category','max:100'],
         ];
     }
     public function messages(){
