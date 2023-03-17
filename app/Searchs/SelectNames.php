@@ -5,6 +5,7 @@ use App\Models\Users\User;
 
 class SelectNames implements DisplayUsers{
 
+  // 改修課題：選択科目の検索機能→検索にカテゴリが名前で、選択科目がチェックされていない場合
   public function resultUsers($keyword, $category, $updown, $gender, $role, $subjects){
     if(empty($gender)){
       $gender = ['1', '2'];

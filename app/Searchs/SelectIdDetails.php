@@ -5,7 +5,7 @@ use App\Models\Users\User;
 
 class SelectIdDetails implements DisplayUsers{
 
-  // 改修課題：選択科目の検索機能
+  // 改修課題：選択科目の検索機能→検索にカテゴリが社員IDで、選択科目がチェックされている場合
   public function resultUsers($keyword, $category, $updown, $gender, $role, $subjects){
     if(is_null($keyword)){
       $keyword = User::get('id')->toArray();
@@ -29,7 +29,7 @@ class SelectIdDetails implements DisplayUsers{
       ->whereIn('role', $role);
     })
     ->whereHas('subjects', function($q) use ($subjects){
-      $q->where('subjects.id','>=', $subjects);
+      $q->whereIn('subjects.id', $subjects);
     })
     ->orderBy('id', $updown)->get();
     return $users;

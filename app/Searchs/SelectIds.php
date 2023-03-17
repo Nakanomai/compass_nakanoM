@@ -5,7 +5,7 @@ use App\Models\Users\User;
 
 class SelectIds implements DisplayUsers{
 
-  // 改修課題：選択科目の検索機能
+  // 改修課題：選択科目の検索機能→検索にカテゴリが社員IDで、選択科目がチェックされていない場合
   public function resultUsers($keyword, $category, $updown, $gender, $role, $subjects){
     if(is_null($gender)){
       $gender = ['1', '2'];
