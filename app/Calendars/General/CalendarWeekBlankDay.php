@@ -7,7 +7,7 @@ class CalendarWeekBlankDay extends CalendarWeekDay{
   }
 
   /**
-   * @return
+   * @return 余白を出力するためのクラス
    */
 
    function render(){
