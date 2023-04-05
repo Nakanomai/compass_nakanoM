@@ -63,7 +63,7 @@ class CalendarView{
           }
           //さらにボタンの表示有無の分岐
           if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-            // 予約してたら参加状態を表示、過去情報
+            //予約してたら参加状態を表示、過去情報
             $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">'. $reservePart_past .'</p>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }else{
