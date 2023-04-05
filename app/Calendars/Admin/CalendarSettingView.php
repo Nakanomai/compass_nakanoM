@@ -57,14 +57,14 @@ class CalendarSettingView{
             $html[] = '<p class="d-flex m-0 p-0">3部<input class="w-25" style="height:20px;" name="reserve_day['.$day->everyDay().'][3]" type="text" form="reserveSetting" value="'.$day->threePartFrame($day->everyDay()).'"></p>';
           }
         }
-        $html[] = '</div>';
+        $html[] = '</div>'; //class→adjust-area
         $html[] = '</td>';
       }
       $html[] = '</tr>';
     }
     $html[] = '</tbody>';
     $html[] = '</table>';
-    $html[] = '</div>';
+    $html[] = '</div>'; //class→calendar text-center
     $html[] = '<form action="'.route('calendar.admin.update').'" method="post" id="reserveSetting">'.csrf_field().'</form>';
     return implode("", $html);
   }
