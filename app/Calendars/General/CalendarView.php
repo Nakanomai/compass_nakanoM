@@ -63,13 +63,31 @@ class CalendarView{
           }
           //さらにボタンの表示有無の分岐
           if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-            //予約してたら参加状態を表示、過去情報
+            // 予約してたら参加状態を表示、過去情報
             $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">'. $reservePart_past .'</p>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }else{
-            //予約していたら赤いボタンが出る(未来情報)
-            $html[] = '<button type="submit" class="btn btn-danger p-0 w-75" name="delete_date" date-toggle="modal" style="font-size:12px" onclick="return confirm(上記の予約をキャンセルしてもよろしいでしょうか？)" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
-            $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts" onclick="return confirm(上記の予約をキャンセルしてもよろしいでしょうか？)">';
+            // 予約していたら赤いボタンが出る(未来情報)
+            $html[] = '<button type="submit" class="btn btn-danger p-0 w-75" name="delete_date" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
+            $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
+            $html[] = '<div class="modal js-modal">';
+            $html[] = '<div class="modal__bg js-modal-close"></div>';
+            $html[] = '<div class="modal__content">';
+            $html[] = '<form action="{{ }}" method="post">';
+            $html[] = '<div class="w-100">';
+            $html[] = '<div class="modal-inner-body w-50 m-auto pt-3 pb-3">';
+            $html[] = '<textarea placeholder="投稿内容" name="post_body" class="w-100"></textarea>';
+            $html[] = '</div>';
+            $html[] = '<div class="w-50 m-auto edit-modal-btn d-flex">';
+            $html[] = '<a class="js-modal-close btn btn-danger d-inline-block" href="">閉じる</a>';
+            $html[] = '<input type="hidden" class="edit-modal-hidden" name="post_id" value="">';
+            $html[] = '<input type="submit" class="btn btn-primary d-block" value="編集">';
+            $html[] = '</div>';
+            $html[] = '</div>';
+            $html[] = '{{ csrf_field() }}';
+            $html[] = '</form>';
+            $html[] = '</div>';
+            $html[] = '</div>';
           }
         }else{
           //予約をしていなかった場合
