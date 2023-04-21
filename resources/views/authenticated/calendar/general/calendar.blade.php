@@ -16,10 +16,10 @@
         <form action="{{ ('deleteParts') }}" method="post">
           <div class="w-100">
             <div class="modal-inner-date w-50 m-auto">
-              <p>予定日：</p><input type="text" name="date_title" class="w-100">
+              <p>予定日：</p><input type="text" style="border: none;" name="date_title" class="w-100">
             </div>
             <div class="modal-inner-time w-50 m-auto pt-3 pb-3">
-              <p>時間：</p><input type="text" name="time_title" class="w-100">
+              <p>時間：</p><input type="text" style="border: none;" name="time_title" class="w-100">
             </div>
             <div class="w-100 cancel_message pt-3 pb-3">
               上記の予約をキャンセルしてもよろしいでしょうか？
