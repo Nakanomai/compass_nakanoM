@@ -52,13 +52,13 @@ class CalendarView{
           $reservePart = $day->authReserveDate($day->everyDay())->first()->setting_part;
           //もし予約していたら123
           if($reservePart == 1){
-            $reservePart = "リモ1部";
+            $reservePart_text = "リモ1部";
             $reservePart_past ="1部参加";
           }else if($reservePart == 2){
-            $reservePart = "リモ2部";
+            $reservePart_text = "リモ2部";
             $reservePart_past ="2部参加";
           }else if($reservePart == 3){
-            $reservePart = "リモ3部";
+            $reservePart_text = "リモ3部";
             $reservePart_past ="3部参加";
           }
           //さらにボタンの表示有無の分岐
@@ -68,26 +68,8 @@ class CalendarView{
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }else{
             // 予約していたら赤いボタンが出る(未来情報)
-            $html[] = '<button type="submit" class="btn btn-danger p-0 w-75" name="delete_date" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
+            $html[] = '<button type="submit" class="btn btn-danger p-0 w-75 js-modal-open" name="delete_date" reserve_part="'.$reservePart.'" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart_text .'</button>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
-            $html[] = '<div class="modal js-modal">';
-            $html[] = '<div class="modal__bg js-modal-close"></div>';
-            $html[] = '<div class="modal__content">';
-            $html[] = '<form action="{{ }}" method="post">';
-            $html[] = '<div class="w-100">';
-            $html[] = '<div class="modal-inner-body w-50 m-auto pt-3 pb-3">';
-            $html[] = '<textarea placeholder="投稿内容" name="post_body" class="w-100"></textarea>';
-            $html[] = '</div>';
-            $html[] = '<div class="w-50 m-auto edit-modal-btn d-flex">';
-            $html[] = '<a class="js-modal-close btn btn-danger d-inline-block" href="">閉じる</a>';
-            $html[] = '<input type="hidden" class="edit-modal-hidden" name="post_id" value="">';
-            $html[] = '<input type="submit" class="btn btn-primary d-block" value="編集">';
-            $html[] = '</div>';
-            $html[] = '</div>';
-            $html[] = '{{ csrf_field() }}';
-            $html[] = '</form>';
-            $html[] = '</div>';
-            $html[] = '</div>';
           }
         }else{
           //予約をしていなかった場合

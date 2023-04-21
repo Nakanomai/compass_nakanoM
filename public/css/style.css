@@ -12,10 +12,16 @@ ul,
 li{
   list-style:none;
 }
+.icon{
+  display: flex;
+  margin: 0 auto;
+  position: relative;
+  top:110px;
+}
 
 /* サイドバー */
 .sidebar{
-  width:150px;
+  width:200px;
   height:100vh;
   background-color:#03AAD2;
   font-weight:bold;
@@ -28,6 +34,9 @@ li{
 }
 
 /* トップページ */
+.my_profile{
+  font-size: 120%;
+}
 .user_status{
   border-radius:10px;
   background:#FFF;
@@ -53,7 +62,7 @@ li{
 
 }
 .table table{
-  
+
 }
 .day_part{
   color:#494949;
@@ -94,6 +103,10 @@ li{
     top: 50%;
     transform: translate(-50%,-50%);
     width: 60%;
+}
+.cancel_message{
+  text-align: center; /* 中央寄せ */
+  margin: 0 auto; /* 中央寄せ */
 }
 
 /* 掲示板 */
@@ -184,11 +197,49 @@ li{
   background:#FFF;
   border-radius:10px;
 }
+.keyword_search{
+  -webkit-appearance: none;
+	display: inline-block;
+	margin-right: 0;
+  margin-bottom: 5px;
+  margin-top: 6px;
+	padding: 10px;
+	width: 200px;
+	height: 40px;
+	font-size: 100%;
+	box-sizing: border-box;
+	border-radius: 8px 0 0 8px;
+	border: 1.5px solid #ccc;
+	border-right: none;
+}
+.post_search{
+  -webkit-appearance: none;
+	display: inline-block;
+	padding: 0 10px;
+  margin-top: 6px;
+	color: #fff;
+	width: 50px;
+	height: 40px;
+	font-size: 100%;
+	vertical-align: top;
+	border: none;
+	border-radius: 0 8px 8px 0;
+	background: #04a9d2;
+}
 .category_box{
   border-radius:5px;
   padding:3px;
   background:#999;
   font-size:10px;
+  color:#FFF;
+}
+.input_btn{
+  border-radius:5px;
+  text-align:center;
+  margin: 0 auto;
+  padding:0 5px;
+  border:none;
+  background:#04a9d2;
   color:#FFF;
 }
 .category_btn{
@@ -199,6 +250,24 @@ li{
   background:#999;
   color:#FFF;
 }
+.like_posts_btn{
+  font-size:12px;
+  border-radius:5px;
+  padding:0 5px;
+  border:none;
+  background:#e38eab;
+  color:#FFF;
+}
+.my_posts_btn{
+  font-size:12px;
+  border-radius:5px;
+  padding:0 5px;
+  border:none;
+  background:#EBBC5D;
+  color:#FFF;
+}
+
+
 .main_categories span,
 .sub_categories li input{
   list-style:none;
@@ -206,6 +275,11 @@ li{
 }
 
 /* ユーザー検索 */
+.user_profile{
+  font-size: 120%;
+  position: relative;
+  top: 15px;
+}
 .reserve_users_area{
   display:flex;
   flex-wrap:wrap;
