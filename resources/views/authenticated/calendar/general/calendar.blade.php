@@ -13,25 +13,21 @@
     <div class="modal js-modal">
       <div class="modal__bg js-modal-close"></div>
       <div class="modal__content">
-        <form action="{{ ('deleteParts') }}" method="post">
           <div class="w-100">
             <div class="modal-inner-date w-50 m-auto">
-              <p>予定日：</p><input type="text" style="border: none;" name="date_title" class="w-100" form="deleteParts">
+              <p style="display:inline">予定日：</p><input type="text" style="border: none; display:inline;" value="" name="getDate" form="deleteParts">
             </div>
             <div class="modal-inner-time w-50 m-auto pt-3 pb-3">
-              <p>時間：</p><input type="text" style="border: none;" name="time_title" class="w-100"　form="deleteParts">
+              <p style="display:inline">時間：リモ</p><input type="hidden" style="border: none;" value="" name="getPart"　form="deleteParts"><p style="display:inline;">部</p>
             </div>
             <div class="w-100 cancel_message pt-3 pb-3">
               上記の予約をキャンセルしてもよろしいでしょうか？
             </div>
             <div class="w-50 m-auto edit-modal-btn d-flex">
               <a class="js-modal-close btn btn-primary d-inline-block" href="">閉じる</a>
-              <input type="hidden" class="edit-modal-hidden" name="post_id" value="" form="deleteParts">
               <input type="submit" class="btn btn-danger d-block" value="キャンセル" form="deleteParts">
             </div>
           </div>
-          {{ csrf_field() }}
-        </form>
       </div>
     </div>
 

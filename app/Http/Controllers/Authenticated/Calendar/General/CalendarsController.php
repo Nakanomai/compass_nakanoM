@@ -39,14 +39,12 @@ class CalendarsController extends Controller
     public function delete(Request $request){
       DB::beginTransaction();
       try{
+        dd($request);
           $getPart = $request->getPart;
-          $getDate = $request->getData;
-          $reserveDays = array_filter(array_combine($getDate, $getPart));
-          foreach($reserveDays as $key => $value){ //特殊な連想配列のキーの取得
+          $getDate = $request->getDate;
               $reserve_settings = ReserveSettings::where('setting_reserve', $key)->where('setting_part', $value)->first();
               $reserve_settings->increment('limit_users');//限度の人数を増やす処理
               $reserve_settings->users()->detach(Auth::id());
-    }
     DB::commit();
 }catch(\Exception $e){
     DB::rollback();
