@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="vh-100 pt-5" style="background:#ECF1F6;">
-  <div class="border w-75 m-auto pt-5 pb-5" style="border-radius:5px; background:#FFF;">
-    <div class="w-75 m-auto border" style="border-radius:5px;">
+  <div class="border w-100 vh-100 m-auto pt-5 pb-5" style="border-radius:5px; background:#FFF;">
+    <div class="w-100 vh-100 p-5 m-auto" style="border-radius:5px;">
 
       <p class="text-center">{{ $calendar->getTitle() }}</p>
       <div class="">
@@ -15,10 +15,10 @@
       <div class="modal__content">
           <div class="w-100">
             <div class="modal-inner-date w-50 m-auto">
-              <p style="display:inline">予定日：</p><input type="text" style="border: none; display:inline;" value="" name="getDate" form="deleteParts">
+              <p style="display:inline">予定日：</p><input type="text" class="modal_date" value="" name="getDate" form="deleteParts" readonly>
             </div>
             <div class="modal-inner-time w-50 m-auto pt-3 pb-3">
-              <p style="display:inline">時間：リモ</p><input type="hidden" style="border: none;" value="" name="getPart"　form="deleteParts"><p style="display:inline;">部</p>
+              <p style="display:inline">時間：リモ</p><input type="text" class="modal_part" value="" name="getPart" form="deleteParts" readonly><p style="display:inline;">部</p>
             </div>
             <div class="w-100 cancel_message pt-3 pb-3">
               上記の予約をキャンセルしてもよろしいでしょうか？
