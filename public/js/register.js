@@ -97,5 +97,4 @@ $(function () {
       $('.register_btn').prop('disabled', true);
     }
   });
-
 })
