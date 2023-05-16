@@ -75,7 +75,7 @@
         </select>
       </div>
       <div class="">
-        <p class="m-0 search_conditions"><span>検索条件の追加</span></p>
+        <p class="m-0 search_conditions" style="border-bottom:1px solid; width:90%;"><span>検索条件の追加</span></p>
         <div class="search_conditions_inner">
           <div>
             <label>性別</label>
@@ -92,22 +92,25 @@
               <option value="4" class="">生徒</option>
             </select>
           </div>
-          <div class="selected_engineer">
-            <label>選択科目</label>
+          <label>選択科目</label>
+          <br>
+          <div class="selected_engineer kamoku_checkbox">
             @foreach($subjects as $subject)
             <div class="">
-              <input type="checkbox" name="subject[]" value="{{ $subject->id }}" form="userSearchRequest">
               <label>{{ $subject->subject }}</label>
+              <input type="checkbox" name="subject[]" value="{{ $subject->id }}" form="userSearchRequest">
             </div>
             @endforeach
           </div>
         </div>
       </div>
-      <div class="d-flex">
+      <div class="mt-3 mr-5">
+      <div class="d-flex input_btn">
         <input type="submit" class="search_btn" name="search_btn" value="検索" form="userSearchRequest">
       </div>
-      <div class="d-flex">
+      <div class="d-flex reset_btn">
         <input type="reset" class="reset_btn" value="リセット" form="userSearchRequest">
+      </div>
       </div>
     </div>
     <form action="{{ route('user.show') }}" method="get" id="userSearchRequest"></form>

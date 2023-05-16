@@ -5,6 +5,12 @@
     padding: 0;
 }
 /* body */
+html{
+  /* height: 100%; */
+}
+body{
+  /* height: 100%; */
+}
 .all_content{
   background:#ECF1F6;
 }
@@ -27,7 +33,6 @@ li{
 /* サイドバー */
 .sidebar{
   width:200px;
-  height:100vh;
   background-color:#03AAD2;
   font-weight:bold;
 }
@@ -346,6 +351,15 @@ li{
   font-size:10px;
   color:#FFF;
 }
+.subcategory_button{
+  border-radius:5px;
+  text-align:center;
+  padding:0 3px;
+  border:none;
+  background:#04a9d2;
+  color:#FFF;
+  outline: none;
+}
 .input_btn{
   border-radius:5px;
   text-align:center;
@@ -407,7 +421,6 @@ li{
   flex-wrap:wrap;
   width:800px;
   margin:10px auto;
-  height:80vh;
   overflow: scroll;
   padding:10px;
   border-radius:5px;
@@ -417,7 +430,20 @@ li{
 }
 .free_word{
   background: #E0E5E9;
+  margin: 10px auto;
   border: none;
+  border-radius: 5px;
+}
+.engineer{
+  background: #E0E5E9;
+  border: none;
+  border-radius: 5px;
+
+}
+.kamoku_checkbox{
+  display: flex;
+  margin-right: 70px;
+  justify-content: space-between;
 }
 .one_person{
   margin: 6px;
@@ -432,13 +458,31 @@ li{
   cursor:pointer;
 }
 .search_conditions_inner{
+  margin-top: 10px;
   display:none;
-  background:#FFF;
+}
+.search_conditions:after {
+  border-right: solid 2px ;
+  border-top: solid 2px ;
+  content: "";
+  display: block;
+  height: 8px;
+  position: absolute;
+  right: 45px;
+  bottom: 440px;
+  transform: rotate(135deg);
+  transition: transform .3s ease-in-out, top .3s ease-in-out;
+  width: 8px;
+}
+.search_conditions.open:after {
+  transform: rotate(-45deg);
+  position: absolute;
+  display: block;
 }
 .search_btn{
   border-radius: 5px;
   text-align: center;
-  margin: 0 auto;
+  margin: 10px auto;
   padding: 0 5px;
   border: none;
   background: #04a9d2;
@@ -448,6 +492,7 @@ li{
   border-radius: 5px;
   text-align: center;
   margin: 0 auto;
+  margin-top: 5px;
   padding: 0 5px;
   border: none;
   background-color: transparent;
@@ -458,6 +503,25 @@ li{
   color:#0000FF;
   cursor:pointer;
 }
+.subject_edit_btn:after{
+  border-right: solid 2px ;
+  border-top: solid 2px ;
+  content: "";
+  display: block;
+  height: 8px;
+  position: absolute;
+  left: 430px;
+  bottom: 395px;
+  transform: rotate(135deg);
+  transition: transform .3s ease-in-out, top .3s ease-in-out;
+  width: 8px;
+}
+.subject_edit_btn.open:after{
+  transform: rotate(-45deg);
+  position: absolute;
+  display: block;
+}
 .subject_inner{
   display:none;
+  flex-direction: row;
 }

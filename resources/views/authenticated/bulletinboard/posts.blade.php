@@ -1,15 +1,16 @@
 @extends('layouts.sidebar')
 
 @section('content')
-<div class="board_area w-100 m-auto d-flex">
+<div class="vh-100 board_area w-100 m-auto d-flex">
   <div class="post_view w-75 mt-5">
     <p class="w-75 m-auto">投稿一覧</p>
     @foreach($posts as $post)
+    @foreach($post->subCategories as $subCategory)
     <div class="post_area border w-75 m-auto p-3">
       <p><span>{{ $post->user->over_name }}</span><span class="ml-3">{{ $post->user->under_name }}</span>さん</p>
-      <p><a href="{{ route('post.detail', ['id' => $post->id]) }}">{{ $post->post_title }}</a></p>
-      <div class="post_bottom_area">
-        <p>{{ $post->subCategories }}</p>
+      <p><a style="text-decoration: none; color:inherit; font-weight:bold;" href="{{ route('post.detail', ['id' => $post->id]) }}">{{ $post->post_title }}</a></p>
+      <div class="d-flex post_bottom_area">
+        <button class="subcategory_button" type="" name="button">{{ $subCategory->sub_category }}</button>
         <div class="post_status">
           <div class="mr-5">
             <i class="fa fa-comment"></i><span class="">{{ $post_comment->find( $post->id )->postComments->count()}}</span>
@@ -25,10 +26,11 @@
       </div>
     </div>
     @endforeach
+    @endforeach
   </div>
   <div class="other_area">
     <div class="m-4">
-      <div class="d-flex input_btn"><a class="input_btn" href="{{ route('post.input') }}">投稿</a></div>
+      <div class="d-flex input_btn"><a class="input_btn" style="text-decoration:none; color: inherit;" href="{{ route('post.input') }}">投稿</a></div>
       <div class="d-flex">
         <input type="text" placeholder="キーワードを検索" name="keyword" class="keyword_search" form="postSearchRequest">
         <input type="submit" value="検索" class="post_search" form="postSearchRequest">

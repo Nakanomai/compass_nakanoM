@@ -204,7 +204,7 @@
         <div class="mt-5 text-right">
           <input type="submit" class="btn btn-primary register_btn" disabled value="新規登録" onclick="return confirm('登録してよろしいですか？')">
         </div>
-        <div class="text-center">
+        <div class="text-center" style="background-color:#FFF;">
           <a href="{{ route('loginView') }}">ログイン</a>
         </div>
       </div>
