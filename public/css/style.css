@@ -29,7 +29,11 @@ li{
   background:#FFF;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.35);
 }
-
+.register_menu{
+  border-radius:10px;
+  background:#FFF;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.35);
+}
 /* サイドバー */
 .sidebar{
   width:200px;
@@ -284,6 +288,10 @@ li{
 }
 .sub_category_box{
   display: none;/*はじめは非表示*/
+  margin: 0 15px;
+  border-bottom: 1px solid;
+  padding: 9px 40px;
+  max-width: 190px;
 }
 /* .accordion-area li{
   margin: 10px 0;
@@ -470,6 +478,7 @@ li{
   position: absolute;
   right: 45px;
   bottom: 440px;
+  position:fixed;
   transform: rotate(135deg);
   transition: transform .3s ease-in-out, top .3s ease-in-out;
   width: 8px;

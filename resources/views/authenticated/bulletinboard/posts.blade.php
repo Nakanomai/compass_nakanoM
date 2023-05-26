@@ -48,9 +48,11 @@
             <ul class="main_categories">
               @foreach($categories as $category)
               <li class="main_categories_title accordion-title" category_id="{{ $category->id }}">
-                <span>{{ $category->main_category }}<span>
+                <span>{{ $category->main_category }}</span>
                 @foreach($category->subCategories as $sub_category)
-                <div class="sub_category_box category_num{{ $category->id }}" value="{{ $sub_category->main_category_id }}">{{ $sub_category->sub_category }}</div>
+                <li type="submit" class="sub_category_box category_num{{ $category->id }}" form="postSearchRequest" value="{{ $sub_category->main_category_id }}">
+                  {{ $sub_category->sub_category }}
+                </li>
                 @endforeach
               </li>
               @endforeach

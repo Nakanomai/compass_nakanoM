@@ -4,6 +4,9 @@
   <div class="w-50 mt-5">
     <div class="m-3 detail_container">
       <div class="p-3">
+        @foreach ($errors->all() as $error)
+          <li class="text-danger">{{$error}}</li>
+        @endforeach
         <div class="detail_inner_head">
           <div>
           </div>
@@ -13,6 +16,9 @@
           </div>
         </div>
 
+        @foreach($post->subCategories as $subCategory)
+        <button class="subcategory_button" type="" name="button">{{ $subCategory->sub_category }}</button>
+        @endforeach
         <div class="contributor d-flex">
           <p>
             <span>{{ $post->user->over_name }}</span>
@@ -43,6 +49,9 @@
   <div class="w-50 p-3">
     <div class="comment_container border m-5">
       <div class="comment_area p-3">
+        @foreach ($errors->all() as $error)
+          <li class="text-danger">{{$error}}</li>
+        @endforeach
         <p class="m-0">コメントする</p>
         <textarea class="w-100" name="comment" form="commentRequest"></textarea>
         <input type="hidden" name="post_id" form="commentRequest" value="{{ $post->id }}">
@@ -50,9 +59,6 @@
         <form action="{{ route('comment.create') }}" method="post" id="commentRequest">{{ csrf_field() }}</form>
       </div>
     </div>
-    @foreach ($errors->all() as $error)
-      <li>{{$error}}</li>
-    @endforeach
   </div>
 </div>
 <div class="modal js-modal">
