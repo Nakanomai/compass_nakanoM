@@ -476,8 +476,8 @@ li{
   display: block;
   height: 8px;
   position: absolute;
-  right: 45px;
-  bottom: 440px;
+  right: 40px;
+  bottom: 374px;
   position:fixed;
   transform: rotate(135deg);
   transition: transform .3s ease-in-out, top .3s ease-in-out;
@@ -519,8 +519,8 @@ li{
   display: block;
   height: 8px;
   position: absolute;
-  left: 430px;
-  bottom: 395px;
+  left: 420px;
+  bottom: 328px;
   transform: rotate(135deg);
   transition: transform .3s ease-in-out, top .3s ease-in-out;
   width: 8px;

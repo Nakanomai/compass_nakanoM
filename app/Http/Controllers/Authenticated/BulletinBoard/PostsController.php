@@ -23,18 +23,24 @@ class PostsController extends Controller
         $categories = MainCategory::get();
         $like = new Like;
         $post_comment = new Post;
-        if(!empty($request->keyword)){
+        if(!empty($request->keyword)){ //論理否定演算子
             $posts = Post::with('user', 'postComments')
             ->where('post_title', 'like', '%'.$request->keyword.'%')
             ->orWhere('post', 'like', '%'.$request->keyword.'%')->get();
-        }else if($request->category_word){
+        }else if($request->category_word){ //サブカテゴリーを絞り込み検索するときに実行
             $sub_category = $request->category_word;
-            $posts = Post::with('user', 'postComments')->get();
-        }else if($request->like_posts){
+            //↑サブカテゴリー名
+
+            //↓投稿内容
+            // $posts = Post::with('user', 'postComments')->get();
+            $posts = Post::whereHas('subCategories',function ($q) use ($sub_category) {
+               $q->where('sub_category', '=', $sub_category);
+            })->get();
+        }else if($request->like_posts){ //いいねの投稿検索するときに実行
             $likes = Auth::user()->likePostId()->get('like_post_id');
             $posts = Post::with('user', 'postComments')
             ->whereIn('id', $likes)->get();
-        }else if($request->my_posts){
+        }else if($request->my_posts){ //じぶんの投稿検索するときに実行
             $posts = Post::with('user', 'postComments')
             ->where('user_id', Auth::id())->get();
         }

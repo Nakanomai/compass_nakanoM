@@ -50,8 +50,9 @@
               <li class="main_categories_title accordion-title" category_id="{{ $category->id }}">
                 <span>{{ $category->main_category }}</span>
                 @foreach($category->subCategories as $sub_category)
-                <li type="submit" class="sub_category_box category_num{{ $category->id }}" form="postSearchRequest" value="{{ $sub_category->main_category_id }}">
-                  {{ $sub_category->sub_category }}
+                <li class="sub_category_box category_num{{ $category->id }}" name="category_word" form="postSearchRequest" value="{{ $sub_category->main_category_id }}">
+                <input type="submit" name="category_word" value="{{ $sub_category->sub_category }}" form="postSearchRequest" style="border: none; background-color: transparent;">
+                </input>
                 </li>
                 @endforeach
               </li>
